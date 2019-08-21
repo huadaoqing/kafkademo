@@ -1,0 +1,19 @@
+
+#idea ignore
+target
+.idea
+*.iml
+logs
+reports
+
+#eclipse ingnore
+.settings
+.classpath
+.project
+.factorypath
+.checkstyle
+bin
+log/
+WebContent/
+
+/.apt_generated/

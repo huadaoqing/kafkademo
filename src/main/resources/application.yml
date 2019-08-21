@@ -1,0 +1,36 @@
+server:
+  port: 11111
+  tomcat:
+    accept-count: 10000
+    max-connections: 1000
+    max-threads: 500
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      retries: 0
+      batch-size: 16384
+      buffer-memory: 33554432
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+    consumer: 
+      retries: 0
+      batchSize: 4096
+      bufferMemory: 40960
+      groupId: com.migu.rstone.subscribetask4
+      heartbeatInterval: 4000
+      sessionTimeout: 15000
+      concurrency: 1
+      maxPollRecords: 1
+      enableAutoCommit: false
+      pollTimeout: 3000
+      autoOffsetReset: earliest
+    stream:
+      kafka:
+        binder:
+          zk-nodes: localhost:2181
+          brokers: localhost:9092
+      bindings:
+logging:
+  level:
+    org.springframework.web.servlet.DispatcherServlet: DEBUG
